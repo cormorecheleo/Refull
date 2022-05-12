@@ -1,33 +1,34 @@
 import React from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CarScreen from './Car/CarScreen'
 import SettingsScreen from './Settings/SettingsScreen';
 import InfoScreen from "./Info/InfoScreen";
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faHouse, faCar, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function HomeScreen({route, navigation}){
     const user = route.params;
     const Tab= createBottomTabNavigator();
     return(
-        <Tab.Navigator>
+<Tab.Navigator>
             <Tab.Screen name="Home" component={Home} options={{
                 tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="home" color={color} size={26} />
+                    <FontAwesomeIcon icon={faHouse} color={color} size={26}/>
                 )
             }}/>
             <Tab.Screen name="Car" component={CarScreen} options={{
                 tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="car" color={color} size={26} />
+                    <FontAwesomeIcon icon={faCar} color={color} size={26}/>
                 )
             }}/>
             <Tab.Screen name="Info" component={InfoScreen} options={{tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="information-variant" color={color} size={26} />
-                )}}/>
+                    <FontAwesomeIcon icon={faInfoCircle} color={color} size={26}/>
+                    )}}/>
             <Tab.Screen name="Account" component={SettingsScreen} options={{
                 tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="account" color={color} size={26} />
+                    <FontAwesomeIcon icon={faUser} color={color} size={26}/>
                 )
             }}/>
         </Tab.Navigator>
