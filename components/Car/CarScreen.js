@@ -1,8 +1,9 @@
 import {Button, Text, View, ActivityIndicator, TouchableOpacity} from "react-native";
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import React, {useEffect, useState} from "react";
 import {firebase} from "../../firebase/config";
 import styles from "./CarStyle";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faCar } from "@fortawesome/free-solid-svg-icons";
 
 export default function Car({navigation}) {
 
@@ -37,7 +38,7 @@ export default function Car({navigation}) {
             <>
                 <Button
                     title="Ajouter vehicule"
-                    onPress={() => navigation.navigate('Ajouter vÃ©hicule')}/>
+                    onPress={() => navigation.navigate('Ajouter vehicule')}/>
                 <View style={styles.container}>
                     {
                         cars && cars.map(car => {
@@ -53,8 +54,8 @@ export default function Car({navigation}) {
                                         chosenDate: car.chosenDate.toDate(),
                                     })}>
                                         <View style={styles.card}>
-                                            <View style={styles.photo}>
-                                                <MaterialCommunityIcons name={car.type} style={styles.icon} size={40}/>
+                                            <View style={styles.photo}> 
+                                                <FontAwesomeIcon icon={faCar} size={40}/>
                                             </View>
                                             <View style={styles.info}>
                                                 <Text style={{padding:2}}>{car.marque} {car.modele}</Text>

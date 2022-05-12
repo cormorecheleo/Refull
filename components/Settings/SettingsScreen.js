@@ -2,6 +2,7 @@ import {Button, Text, View, Switch} from "react-native";
 import React from "react";
 import styles from "./SettingsStyle";
 import {firebase} from "../../firebase/config";
+import { Avatar, Badge } from "react-native-elements";
 
 
 export default function Settings({navigation}) {
@@ -16,6 +17,23 @@ export default function Settings({navigation}) {
     return(
         <>
         <View style={styles.container}>
+
+        <View style={styles.logoView}>
+                <Avatar
+                size="xlarge"
+                rounded
+                title="MD"
+                onPress={() => console.log("Works!")}
+                containerStyle={{backgroundColor:'grey'}}
+                />
+                
+            </View>
+           
+            <View style={styles.picButton}>
+                <Button title="Changer photo de profile"/>
+            </View>
+
+
             <Text style={styles.label}>MY ACCOUNT</Text>
             <View style={styles.account}>
                 <View style={styles.row}>

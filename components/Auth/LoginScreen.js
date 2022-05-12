@@ -19,6 +19,33 @@ export default function LoginScreen({navigation}) {
         navigation.navigate('Home')
     }
 
+    const TestPress = () => {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword("test2@gmail.com", "password")
+            .then((response) => {
+                const uid = response.user.uid
+                const usersRef = firebase.firestore().collection('users')
+                usersRef
+                    .doc(uid)
+                    .get()
+                    .then(firestoreDocument => {
+                        if(!firestoreDocument.exists){
+                            alert("User does not exist anymore")
+                            return;
+                        }
+                        const user = firestoreDocument.data()
+                        navigation.navigate('Home', {user})
+                    })
+                    .catch(error =>{
+                        alert(error)
+                    });
+            })
+            .catch(error => {
+                alert(error)
+            })
+    }
+
     const onLoginPress = () => {
         firebase
             .auth()
@@ -72,6 +99,10 @@ export default function LoginScreen({navigation}) {
                     onPress={()=> onLoginPress()}>
                     <Text style={styles.buttonTitle}>Log in</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={{margin:20, backgroundColor:"grey"}}
+                    onPress={() => TestPress()}>
+                        <Text>Passs</Text>
+                    </TouchableOpacity>
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Don't have an account ? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text> </Text>
                 </View>
