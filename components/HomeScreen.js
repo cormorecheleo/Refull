@@ -12,7 +12,7 @@ export default function HomeScreen({route, navigation}){
     const user = route.params;
     const Tab= createBottomTabNavigator();
     return(
-        <Tab.Navigator>
+<Tab.Navigator>
             <Tab.Screen name="Home" component={Home} options={{
                 tabBarIcon: ({ color }) => (
                     //<FontAwesomeIcon icon={faHouse} size={26}/>

@@ -1,9 +1,10 @@
-import {Button, Text, View, ActivityIndicator, TouchableOpacity} from "react-native";
+import { View, ActivityIndicator, TouchableOpacity} from "react-native";
 import React, {useEffect, useState} from "react";
 import {firebase} from "../../firebase/config";
 import styles from "./CarStyle";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import { faCar } from "@fortawesome/free-solid-svg-icons";
+import { Button, Text } from '@rneui/themed';
 
 export default function Car({navigation}) {
 
@@ -37,8 +38,20 @@ export default function Car({navigation}) {
         return (
             <>
                 <Button
-                    title="Ajouter vehicule"
-                    onPress={() => navigation.navigate('Ajouter vehicule')}/>
+                    title="Ajouter un véhicule"
+                    onPress={() => navigation.navigate('Ajouter un véhicule')}
+                    buttonStyle={{
+                        borderColor: 'rgba(78, 116, 289, 1)',
+                      }}
+                      type="outline"
+                      titleStyle={{ color: 'rgba(78, 116, 289, 1)' }}
+                      containerStyle={{
+                        width: 200,
+                        marginHorizontal: 100,
+                        marginTop: 20,
+                        marginVertical: 10,
+                      }}/>
+
                 <View style={styles.container}>
                     {
                         cars && cars.map(car => {
