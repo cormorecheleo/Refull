@@ -17,8 +17,10 @@ import Welcome from './components/Welcome/screen';
 import LoginScreen from './components/Auth/LoginScreen';
 import RegisterScreen from './components/Auth/RegisterScreen';
 import HomeScreen from './components/HomeScreen';
-import CarEvent from "./components/Car/CarEvent";
-import CarDetails from "./components/Car/CarDetails";
+import AddCarScreen from './components/Car/AddCarScreen';
+import CarDetails from './components/Car/CarDetails';
+import CarEvent from './components/Car/CarEvent';
+import Controle from './components/Car/Controle_Technique/ControleScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +44,10 @@ const App = () => {
           <Stack.Screen name="Login" component={LoginScreen}/>
           <Stack.Screen name="Register" component={RegisterScreen}/>
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false}}/>
-          <Stack.Screen name="Ajouter un véhicule" component={AddCarScreen}/>
+          <Stack.Screen name='Ajouter vehicule' component={AddCarScreen}/>
+          <Stack.Screen name='AddEvent' component={CarEvent} options={{ title: "Ajouter Event" }}/>
+          <Stack.Screen name='Details' component={CarDetails}/>
+          <Stack.Screen name='Controle technique' component={Controle}/>
 
         </React.Fragment>
       </Stack.Navigator>

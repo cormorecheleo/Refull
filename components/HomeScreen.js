@@ -4,9 +4,9 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import CarScreen from './Car/CarScreen'
 import SettingsScreen from './Settings/SettingsScreen';
 import InfoScreen from "./Info/InfoScreen";
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHouse, faCar, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
-
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faHouse, faCar, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Icon } from "react-native-elements";
 
 export default function HomeScreen({route, navigation}){
     const user = route.params;
@@ -15,20 +15,23 @@ export default function HomeScreen({route, navigation}){
 <Tab.Navigator>
             <Tab.Screen name="Home" component={Home} options={{
                 tabBarIcon: ({ color }) => (
-                    <FontAwesomeIcon icon={faHouse} color={color} size={26}/>
+                    //<FontAwesomeIcon icon={faHouse} size={26}/>
+                    <Icon name="home" size={26}/>
                 )
             }}/>
             <Tab.Screen name="Car" component={CarScreen} options={{
                 tabBarIcon: ({ color }) => (
-                    <FontAwesomeIcon icon={faCar} color={color} size={26}/>
+                    //<FontAwesomeIcon icon={faCar} size={26}/>
+                    <Icon name="car" size={26}/>
                 )
             }}/>
             <Tab.Screen name="Info" component={InfoScreen} options={{tabBarIcon: ({ color }) => (
-                    <FontAwesomeIcon icon={faInfoCircle} color={color} size={26}/>
+                    <FontAwesomeIcon icon={faInfoCircle} size={26}/>
                     )}}/>
             <Tab.Screen name="Account" component={SettingsScreen} options={{
                 tabBarIcon: ({ color }) => (
-                    <FontAwesomeIcon icon={faUser} color={color} size={26}/>
+                    //<FontAwesomeIcon icon={faUser} size={26}/>
+                    <Icon name="user" size={26}/>
                 )
             }}/>
         </Tab.Navigator>

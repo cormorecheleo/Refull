@@ -39,6 +39,10 @@ const styles = StyleSheet.create({
     },
     logoutButton: {
         margin:20,
+    },
+    logoView: {
+        marginLeft:"auto",
+        marginRight: "auto",
     }
 
 });

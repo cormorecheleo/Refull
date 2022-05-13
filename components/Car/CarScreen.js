@@ -67,7 +67,7 @@ export default function Car({navigation}) {
                                         chosenDate: car.chosenDate.toDate(),
                                     })}>
                                         <View style={styles.card}>
-                                            <View style={styles.photo}>
+                                            <View style={styles.photo}> 
                                                 <FontAwesomeIcon icon={faCar} size={40}/>
                                             </View>
                                             <View style={styles.info}>

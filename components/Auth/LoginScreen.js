@@ -22,7 +22,7 @@ export default function LoginScreen({navigation}) {
     const TestPress = () => {
         firebase
             .auth()
-            .signInWithEmailAndPassword("antoine.duduc@hotmail.com", "14072000")
+            .signInWithEmailAndPassword("test2@gmail.com", "password")
             .then((response) => {
                 const uid = response.user.uid
                 const usersRef = firebase.firestore().collection('users')

@@ -10,7 +10,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@dietime/react-native-date-picker": "^1.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-native-fontawesome": "^0.2.7",
@@ -21,13 +20,13 @@
     "@react-navigation/native-stack": "^6.6.1",
     "@rneui/base": "^4.0.0-rc.2",
     "@rneui/themed": "^4.0.0-rc.2",
-    "expo-linear-gradient": "^11.3.0",
     "firebase": "^9.6.11",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-native": "0.68.1",
     "react-native-date-picker": "^4.2.1",
     "react-native-gesture-handler": "^2.4.2",
+    "react-native-elements": "^3.4.2",
     "react-native-keyboard-aware-scrollview": "^2.1.0",
     "react-native-modalize": "^2.0.13",
     "react-native-pages": "^0.9.0",

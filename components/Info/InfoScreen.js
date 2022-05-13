@@ -6,8 +6,7 @@ export default function Info({navigation}){
 
     return(
         <>
-            <Text>Les infos :</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('PrÃ©vention routière')}><Text>PrÃ©vention Routiere</Text></TouchableOpacity>
+            <Text>Info !!</Text>
         </>
     )
 
