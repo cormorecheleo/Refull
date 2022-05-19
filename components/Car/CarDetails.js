@@ -1,8 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Button, Text, View, TouchableOpacity} from "react-native";
 import styles from "./CarStyle";
 import { faCar } from "@fortawesome/free-solid-svg-icons";
+import {firebase} from "../../firebase/config";
+import { Card } from "react-native-elements";
+import moment from "moment";
 
 
 export default function Car({route, navigation}) {
@@ -14,8 +17,23 @@ export default function Car({route, navigation}) {
         type,
         chosenDate,
     } = route.params;
+    const [historique, setHistorique] = useState([{}]);
+    const [loading, setLoading] = useState(true);
     console.log(chosenDate);
     console.log(route.params);
+    const db = firebase.firestore();
+    useEffect(() => {
+        const history = db.collection('historique')
+            .where('carid', '==', id)
+            .get()
+            .then(querySnapchot => {
+                setLoading(false);
+                const document = querySnapchot.docs.map(doc => doc.data());
+                setHistorique(document);
+            });
+            console.log("HISTOOOO ---->", history);
+            return history;
+    }, []);
     return(
         <>
             <View style={styles.addView}>
@@ -35,10 +53,22 @@ export default function Car({route, navigation}) {
                         <Text style={{padding:2}}>{kilometre} km</Text>
                     </View>
                 </View>
-                <View style={{marginLeft:10}}>
-                    <Text style={styles.eventTitle}> HISTRORIQUE</Text>
+                <View style={{marginLeft:30}}>
+                    <Text style={styles.eventTitle}> HISTORIQUE</Text>
                 <View style={styles.line}></View>
-
+                </View>
+                <View>
+                {
+                        historique && historique.map(histo => {
+                            return (
+                                <Card>
+                                    <Card.Title>{histo.type}</Card.Title>
+                                    <Text>Nature : {histo.nature}</Text>
+                                    <Text>N° procès verbal : {histo.numVerbal}</Text>
+                                </Card>
+                            )
+                        })
+                }
                 </View>
             </>
     )

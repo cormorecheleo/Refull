@@ -12,7 +12,6 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-import AddCarScreen from './components/Car/AddCarScreen';
 import Welcome from './components/Welcome/screen';
 import LoginScreen from './components/Auth/LoginScreen';
 import RegisterScreen from './components/Auth/RegisterScreen';
