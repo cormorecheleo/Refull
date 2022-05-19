@@ -6,6 +6,7 @@ import {Text, Input, Button, ListItem} from '@rneui/themed';
 import { useRef } from 'react';
 import { Modalize } from 'react-native-modalize';
 import { Picker } from "@react-native-picker/picker";
+import styles from "./CarStyle";
 
 
 export default function AddVehiculeScreen({navigation}) {
@@ -114,94 +115,76 @@ const onOpen5 = () => {
         <>
             <View>
 
-            <TouchableOpacity style={{height: 40, textAlign: 'justify', borderRadius: 5, marginTop: 100, margin:20, 
-                                    borderColor: 'rgba(78, 116, 289, 1)', borderWidth: 0.5,}} onPress={onOpen}>
+            <TouchableOpacity style={styles.fieldOpacity} onPress={onOpen}>
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.fieldView}>
             
-            <Text style={{marginLeft: 10, fontSize: 18, textAlign: 'left', float: 'left',
-                        lineHeight: 40, color: 'rgba(78, 116, 289, 1)'}}>Type de véhicule</Text>
+            <Text style={styles.fieldLabel}>Type de véhicule</Text>
 
-            <Text style={{fontSize: 14, textAlign: 'right', float: 'right', lineHeight: 40,
-                        color: '#9F9F9F', marginLeft: 'auto'}}>{select}</Text>
+            <Text style={styles.fieldResult}>{select}</Text>
     
-            <ListItem.Chevron style={{marginBottom: 'auto', paddingHorizontal: 10, color: "#9F9F9F"}} />
+            <ListItem.Chevron style={styles.fieldChevron} />
             </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{height: 40, textAlign: 'justify', borderRadius: 5, margin:20, 
-                                borderColor: 'rgba(78, 116, 289, 1)', borderWidth: 0.5,}} onPress={onOpen1}>
+            <TouchableOpacity style={styles.fieldOpacity} onPress={onOpen1}>
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.fieldView}>
         
-             <Text style={{marginLeft: 10,fontSize: 18,textAlign: 'left',float: 'left',
-                    lineHeight: 40,color: 'rgba(78, 116, 289, 1)'}}>Marque</Text>
+             <Text style={styles.fieldLabel}>Marque</Text>
 
-            <Text style={{fontSize: 14,textAlign: 'right',float: 'right',lineHeight: 40,color: '#9F9F9F',
-                    marginLeft: 'auto'}}>{marque}</Text>
+            <Text style={styles.fieldResult}>{marque}</Text>
                             
-            <ListItem.Chevron style={{marginBottom: 'auto', paddingHorizontal: 10, color: "#9F9F9F"}} />
+            <ListItem.Chevron style={styles.fieldChevron} />
             </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{height: 40,textAlign: 'justify',borderRadius: 5,margin:20, 
-                                borderColor: 'rgba(78, 116, 289, 1)',borderWidth: 0.5,}} onPress={onOpen2}>
+            <TouchableOpacity style={styles.fieldOpacity} onPress={onOpen2}>
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.fieldView}>
         
-            <Text style={{marginLeft: 10,fontSize: 18,   textAlign: 'left',float: 'left',
-                    lineHeight: 40,color: 'rgba(78, 116, 289, 1)'}}>Modèle</Text>
+            <Text style={styles.fieldLabel}>Modèle</Text>
 
-            <Text style={{fontSize: 14,textAlign: 'right',float: 'right',lineHeight: 40,
-                    color: '#9F9F9F',marginLeft: 'auto'}}>{modele}</Text>
+            <Text style={styles.fieldResult}>{modele}</Text>
                             
-            <ListItem.Chevron style={{marginBottom: 'auto', paddingHorizontal: 10, color: "#9F9F9F"}} />
+            <ListItem.Chevron style={styles.fieldChevron} />
             </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{height: 40,textAlign: 'justify',borderRadius: 5,margin:20, 
-                                    borderColor: 'rgba(78, 116, 289, 1)',borderWidth: 0.5,}}onPress={onOpen3}>
+            <TouchableOpacity style={styles.fieldOpacity} onPress={onOpen3}>
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.fieldView}>
             
-            <Text style={{marginLeft: 10,fontSize: 18,   textAlign: 'left',float: 'left',
-                        lineHeight: 40,color: 'rgba(78, 116, 289, 1)'}}>Année de mise en circulation</Text>
+            <Text style={styles.fieldLabel}>Année de mise en circulation</Text>
 
-            <Text style={{fontSize: 14,textAlign: 'right',float: 'right',lineHeight: 40,
-                        color: '#9F9F9F',marginLeft: 'auto'}}>date</Text>
+            <Text style={styles.fieldResult}>date</Text>
                             
-            <ListItem.Chevron style={{marginBottom: 'auto', paddingHorizontal: 10, color: "#9F9F9F"}} />
+            <ListItem.Chevron style={styles.fieldChevron} />
             </View>
             </TouchableOpacity>
 
 
-            <TouchableOpacity style={{height: 40,textAlign: 'justify',borderRadius: 5,margin:20, 
-                                    borderColor: 'rgba(78, 116, 289, 1)',borderWidth: 0.5,}} onPress={onOpen4}>
+            <TouchableOpacity style={styles.fieldOpacity} onPress={onOpen4}>
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.fieldView}>
             
-            <Text style={{marginLeft: 10,fontSize: 18,   textAlign: 'left',float: 'left',lineHeight: 40,
-                        color: 'rgba(78, 116, 289, 1)'}}>Numéro d'immmatriculation</Text>
+            <Text style={styles.fieldLabel}>Numéro d'immmatriculation</Text>
 
-            <Text style={{fontSize: 14,textAlign: 'right',float: 'right',lineHeight: 40,
-                        color: '#9F9F9F',marginLeft: 'auto'}}>{plaque}</Text>
+            <Text style={styles.fieldResult}>{plaque}</Text>
                                 
-            <ListItem.Chevron style={{marginBottom: 'auto', paddingHorizontal: 10, color: "#9F9F9F"}} />
+            <ListItem.Chevron style={styles.fieldChevron} />
             </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ height: 40, textAlign: 'justify', borderRadius: 5, margin:20, 
-                                    borderColor: 'rgba(78, 116, 289, 1)', borderWidth: 0.5,}} onPress={onOpen5}>
+            <TouchableOpacity style={styles.fieldOpacity} onPress={onOpen5}>
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.fieldView}>
             
-            <Text style={{marginLeft: 10, fontSize: 18, textAlign: 'left', float: 'left',
-                        lineHeight: 40, color: 'rgba(78, 116, 289, 1)'}}>Kilométrage</Text>
+            <Text style={styles.fieldLabel}>Kilométrage</Text>
 
-            <Text style={{ fontSize: 14, textAlign: 'right', float: 'right', lineHeight: 40, 
-                        color: '#9F9F9F', marginLeft: 'auto'}}>{kilometre}</Text>
+            <Text style={styles.fieldResult}>{kilometre}</Text>
                                 
-            <ListItem.Chevron style={{marginBottom: 'auto', paddingHorizontal: 10, color: "#9F9F9F"}} />
+            <ListItem.Chevron style={styles.fieldChevron} />
                             </View>
             </TouchableOpacity>
                 
@@ -217,15 +200,16 @@ const onOpen5 = () => {
                                 color: 'rgba(78, 116, 289, 1)'}}> Type de véhicule</Text></View>}>
                      
                  <Picker selectedValue={select} onValueChange={(itemValue, itemIndex) => setSelect(itemValue)}>
-                        <Picker.Item label="Voiture" value="car" />
-                        <Picker.Item label="Moto" value="motorbike" />
-                        <Picker.Item label="Camion" value="truck" />
-                        <Picker.Item label="Bus" value="bus"/>
+                        <Picker.Item label="Choisir un véhicule"/>
+                        <Picker.Item label="Voiture" value="Voiture" />
+                        <Picker.Item label="Moto" value="Moto" />
+                        <Picker.Item label="Camion" value="Camion" />
+                        <Picker.Item label="Bus" value="Bus"/>
                     </Picker>
                 <Button title="Valider" onPress={onClose}
-                    buttonStyle={{borderColor: 'rgba(78, 116, 289, 1)', borderWidth: 0.5, borderRadius: 5, marginTop: 30}}
+                    buttonStyle={styles.modalButton}
                     type="outline" titleStyle={{color: 'rgba(78, 116, 289, 1)'}} 
-                    containerStyle={{width: 200, marginHorizontal: 100, marginTop: 20, marginVertical: 10}}/>
+                    containerStyle={styles.buttonContainer}/>
                  </Modalize>
 
                  <Modalize ref={modalizeRef1} snapPoint={600} panGestureEnabled={false}

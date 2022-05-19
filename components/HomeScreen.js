@@ -9,7 +9,7 @@ import { faHouse, faCar, faInfoCircle, faUser } from "@fortawesome/free-solid-sv
 import { Icon } from "react-native-elements";
 
 export default function HomeScreen({route, navigation}){
-    const user = route.params;
+    const {user} = route.params;
     const Tab= createBottomTabNavigator();
     return(
 <Tab.Navigator>
@@ -19,7 +19,7 @@ export default function HomeScreen({route, navigation}){
                     <Icon name="home" size={26}/>
                 )
             }}/>
-            <Tab.Screen name="Car" component={CarScreen} options={{
+            <Tab.Screen name="Car" component={CarScreen} initialParams={{ user: user}} options={{
                 tabBarIcon: ({ color }) => (
                     //<FontAwesomeIcon icon={faCar} size={26}/>
                     <Icon name="car" size={26}/>
