@@ -60,27 +60,27 @@ export default function RegisterScreen({navigation}){
                 </View>
                 <TextInput
                     style={styles.input}
-                    placeholder='Full Name'
+                    placeholder='Nom et prénom'
                     onChangeText={(text) => setFullName(text)}
                     value={fullName}
                     autoCapitalize="none"/>
                 <TextInput
                     style={styles.input}
-                    placeholder='E-mail'
+                    placeholder='Adresse mail'
                     onChangeText={(text) => setEmail(text)}
                     value={email}
                     autoCapitalize="none"/>
                 <TextInput
                     style={styles.input}
                     secureTextEntry
-                    placeholder='Password'
+                    placeholder='Mot de passe'
                     onChangeText={(text) => setPassword(text)}
                     value={password}
                     autoCapitalize="none"/>
                 <TextInput
                     style={styles.input}
                     secureTextEntry
-                    placeholder='Confirm Password'
+                    placeholder='Confirmation de mot de passe'
                     onChangeText={(text) => setConfirmPassword(text)}
                     value={confirmPassword}
                     autoCapitalize="none"/>

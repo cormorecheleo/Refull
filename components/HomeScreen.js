@@ -4,8 +4,6 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import CarScreen from './Car/CarScreen'
 import SettingsScreen from './Settings/SettingsScreen';
 import InfoScreen from "./Info/InfoScreen";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faHouse, faCar, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Icon } from "react-native-elements";
 
 export default function HomeScreen({route, navigation}){
@@ -13,25 +11,24 @@ export default function HomeScreen({route, navigation}){
     const Tab= createBottomTabNavigator();
     return(
 <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home} options={{
+            <Tab.Screen name="Accueil" component={Home} options={{
                 tabBarIcon: ({ color }) => (
-                    //<FontAwesomeIcon icon={faHouse} size={26}/>
-                    <Icon name="home" size={26}/>
+                    <Icon name="home-outline" size={26} type="ionicon"/>
                 )
             }}/>
-            <Tab.Screen name="Car" component={CarScreen} initialParams={{ user: user}} options={{
+            <Tab.Screen name="Véhicule" component={CarScreen} initialParams={{ user: user}} options={{
                 tabBarIcon: ({ color }) => (
-                    //<FontAwesomeIcon icon={faCar} size={26}/>
-                    <Icon name="car" size={26}/>
+                    <Icon name="car-sport-outline" size={26} type="ionicon"/>
                 )
             }}/>
-            <Tab.Screen name="Info" component={InfoScreen} options={{tabBarIcon: ({ color }) => (
-                    <FontAwesomeIcon icon={faInfoCircle} size={26}/>
-                    )}}/>
-            <Tab.Screen name="Account" component={SettingsScreen} options={{
+            <Tab.Screen name="Information" component={InfoScreen} options={{tabBarIcon: ({ color }) => (
+                    <Icon name="information-circle-outline" size={26} type="ionicon"/>
+                    )
+            }}/>
+
+            <Tab.Screen name="Compte" component={SettingsScreen} options={{
                 tabBarIcon: ({ color }) => (
-                    //<FontAwesomeIcon icon={faUser} size={26}/>
-                    <Icon name="user" size={26}/>
+                    <Icon name="person-circle-outline" size={26}  type="ionicon"/>
                 )
             }}/>
         </Tab.Navigator>
@@ -41,7 +38,7 @@ export default function HomeScreen({route, navigation}){
 function Home(){
     return(
         <View>
-            <Text>Home ! </Text>
+
         </View>
     )
 }

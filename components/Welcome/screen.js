@@ -31,7 +31,7 @@ export default function Welcome({navigation})
                     </Pages>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-                    <Text style={styles.buttonText}>Nouveau ? S'inscrire</Text>
+                    <Text style={styles.buttonLogin}>Nouveau ? S'inscrire</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                     <Text style={styles.buttonLogin}>Pas nouveau ? Connexion</Text>
