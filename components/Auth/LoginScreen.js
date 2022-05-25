@@ -12,7 +12,7 @@ export default function LoginScreen({navigation}) {
     const [password, setPassword] = useState('')
 
     const onFooterLinkPress = () => {
-        navigation.navigate('Register')
+        navigation.navigate('register')
     }
 
     const onTestPress = () => {
@@ -31,7 +31,7 @@ export default function LoginScreen({navigation}) {
                     .get()
                     .then(firestoreDocument => {
                         if(!firestoreDocument.exists){
-                            alert("User does not exist anymore")
+                            alert("L'utilisateur n'existe pas !")
                             return;
                         }
                         const user = firestoreDocument.data()
@@ -58,7 +58,7 @@ export default function LoginScreen({navigation}) {
                     .get()
                     .then(firestoreDocument => {
                         if(!firestoreDocument.exists){
-                            alert("User does not exist anymore")
+                            alert("L'utilisateur n'existe pas !")
                             return;
                         }
                         const user = firestoreDocument.data()
