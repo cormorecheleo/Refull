@@ -29,6 +29,8 @@ const styles = StyleSheet.create({
     line: {
         borderTopWidth:0.5,
         width:"90%",
+        marginLeft:'auto',
+        marginRight:'auto'
     },
     addView: {
         width:50,
@@ -65,6 +67,8 @@ const styles = StyleSheet.create({
     eventTitle: {
         fontSize:25,
         color:'grey',
+        marginLeft:'auto',
+        marginRight:'auto',
     },
     fieldOpacity :{
             height: 40, 
@@ -117,7 +121,29 @@ const styles = StyleSheet.create({
         marginHorizontal: 100, 
         marginTop: 20, 
         marginVertical: 10
-    }
+    },
+    boldText:{
+        fontWeight:'bold',
+    },
+    editButton:{
+        backgroundColor:'grey',
+        height:'100%',
+    },
+    editIcon:{
+        marginTop:'auto',
+        marginBottom:'auto',
+        marginLeft:25
+    },
+    deleteButton:{
+        backgroundColor:'red',
+        height:'100%',
+
+    },
+    deleteIcon:{
+        marginTop:'auto',
+        marginBottom:'auto',
+        marginLeft:25
+    },
 
 });
 

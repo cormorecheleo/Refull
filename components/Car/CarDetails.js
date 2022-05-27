@@ -4,8 +4,15 @@ import {Button, Text, View, TouchableOpacity} from "react-native";
 import styles from "./CarStyle";
 import { faCar } from "@fortawesome/free-solid-svg-icons";
 import {firebase} from "../../firebase/config";
-import { Card } from "react-native-elements";
+import { Card, Icon } from "react-native-elements";
 import moment from "moment";
+import Swipeable from "react-native-swipeable";
+
+const rightButtons = [
+
+    <TouchableOpacity style={styles.editButton}><View style={styles.editIcon}><Text><Icon name="pencil-outline" type="ionicon"/></Text></View></TouchableOpacity>,
+    <TouchableOpacity style={styles.deleteButton}><View style={styles.deleteIcon}><Text><Icon name="trash-outline" type="ionicon"/></Text></View></TouchableOpacity>
+  ];
 
 
 export default function Car({route, navigation}) {
@@ -19,19 +26,27 @@ export default function Car({route, navigation}) {
     } = route.params;
     const [historique, setHistorique] = useState([{}]);
     const [loading, setLoading] = useState(true);
-    console.log(chosenDate);
-    console.log(route.params);
     const db = firebase.firestore();
+    
     useEffect(() => {
         const history = db.collection('historique')
             .where('carid', '==', id)
             .get()
             .then(querySnapchot => {
                 setLoading(false);
-                const document = querySnapchot.docs.map(doc => doc.data());
+                const document = querySnapchot.docs.map(function(doc){ 
+                    const data = {
+                        carid: doc.data().carid,
+                        date: doc.data().date.toDate(),
+                        nature: doc.data().nature,
+                        numVerbal: doc.data().numVerbal,
+                        resultat: doc.data().resultat,
+                        type:doc.data().type
+                    }
+                    return data;
+                 });
                 setHistorique(document);
             });
-            console.log("HISTOOOO ---->", history);
             return history;
     }, []);
     return(
@@ -50,10 +65,10 @@ export default function Car({route, navigation}) {
                         <View style={styles.line}></View>
                         <Text style={{padding:2}}>{plaque}</Text>
                         <View style={{borderTopWidth: 0.25, width: "90%"}}></View>
-                        <Text style={{padding:2}}>{kilometre} km</Text>
+                        <Text style={{padding:2}}>{kilometre.replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ' ')} km</Text>
                     </View>
                 </View>
-                <View style={{marginLeft:30}}>
+                <View>
                     <Text style={styles.eventTitle}> HISTORIQUE</Text>
                 <View style={styles.line}></View>
                 </View>
@@ -61,11 +76,14 @@ export default function Car({route, navigation}) {
                 {
                         historique && historique.map(histo => {
                             return (
-                                <Card>
+                                <Swipeable rightButtons={rightButtons} style={{marginTop:10}}>
+                                <Card containerStyle={{margin:0}}>
                                     <Card.Title>{histo.type}</Card.Title>
-                                    <Text>Nature : {histo.nature}</Text>
-                                    <Text>N° procès verbal : {histo.numVerbal}</Text>
+                                    <Text style={styles.boldText}>Nature </Text><Text>{histo.nature}</Text>
+                                    <Text style={styles.boldText}>N° procès verbal</Text><Text>{histo.numVerbal}</Text>
+                                    <Text style={styles.boldText}>Date</Text><Text>{moment(histo.date).format('Do MMM YYYY')}</Text>
                                 </Card>
+                                </Swipeable>
                             )
                         })
                 }
