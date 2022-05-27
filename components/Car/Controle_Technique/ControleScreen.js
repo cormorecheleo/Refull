@@ -41,6 +41,7 @@ const Controle = ({ navigation, route }) => {
         numVerbal:numVerbal,
         type:"Controle technique",
         date:date,
+        //date:moment(date).format('Do MMM YYYY'),
         nature:naturePicker,
         resultat:resultatPicker
     }
