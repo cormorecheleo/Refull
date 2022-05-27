@@ -9,6 +9,7 @@ import { Pages } from "react-native-pages";
 
 export default function Welcome({navigation})
 {
+    //page d'accueil non connecté
         return (
             <>
                 <View style={styles.first}>

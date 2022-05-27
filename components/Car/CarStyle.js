@@ -1,5 +1,6 @@
 import {StyleSheet} from "react-native";
 
+//Fichier de style
 
 const styles = StyleSheet.create({
     card : {

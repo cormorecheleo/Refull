@@ -7,12 +7,13 @@ import Motorcycle from "../../assets/motorbike.png";
 
 export default function RegisterScreen({navigation}){
 
+//Variables d'état pour la gestion des champs de saisie du formulaire d'authentification
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
-
+//Fonction de gestion de l'authentification de l'utilisateur
     const onFooterLinkPress = () => {
         navigation.navigate('Login')
     }
@@ -50,11 +51,10 @@ export default function RegisterScreen({navigation}){
             });
 
     }
-
+//Retourne le contenu de la page de création de compte
     return(
         <View style={styles.container}>
-            <KeyboardAwareScrollView
-                style={{flex:1, width: '100%'}}>
+            <KeyboardAwareScrollView style={{flex:1, width: '100%'}}>
                 <View style={styles.logoView}>
                     <Image style={styles.motorcycleLogo} source={Motorcycle}/>
                 </View>
@@ -64,12 +64,14 @@ export default function RegisterScreen({navigation}){
                     onChangeText={(text) => setFullName(text)}
                     value={fullName}
                     autoCapitalize="none"/>
+
                 <TextInput
                     style={styles.input}
                     placeholder='Adresse mail'
                     onChangeText={(text) => setEmail(text)}
                     value={email}
                     autoCapitalize="none"/>
+
                 <TextInput
                     style={styles.input}
                     secureTextEntry
@@ -77,6 +79,7 @@ export default function RegisterScreen({navigation}){
                     onChangeText={(text) => setPassword(text)}
                     value={password}
                     autoCapitalize="none"/>
+
                 <TextInput
                     style={styles.input}
                     secureTextEntry
@@ -84,8 +87,8 @@ export default function RegisterScreen({navigation}){
                     onChangeText={(text) => setConfirmPassword(text)}
                     value={confirmPassword}
                     autoCapitalize="none"/>
-                <TouchableOpacity
-                    onPress={()=>onRegisterPress()}>
+
+                <TouchableOpacity onPress={()=>onRegisterPress()}>
                     <Text style={styles.buttonTitle}>Créer un compte</Text>
                 </TouchableOpacity>
                 <View style={styles.footerView}>

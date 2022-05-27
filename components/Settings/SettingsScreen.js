@@ -6,7 +6,7 @@ import { Avatar, Badge } from "react-native-elements";
 
 
 export default function Settings({navigation}) {
-
+//Connexion à la base de données
     const user = firebase.auth().currentUser;
     console.log(user);
     const [ isDarkMode, setIsDarlMode ] = React.useState(false);
@@ -14,6 +14,7 @@ export default function Settings({navigation}) {
         setIsDarlMode(previousState => !previousState);
 
     }
+    //Affiche le compte utilisateur avec ses données personnelles
     return(
         <>
         <View style={styles.container}>

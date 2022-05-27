@@ -19,7 +19,7 @@ const chartConfig = {
     barPercentage: 0.5,
     useShadowColorFromDataset: false // optional
   };
-
+//data graphique
   const data = {
     labels: ["Janvier", "Février", "Mars", "Avril", "Mai"],
     datasets: [
@@ -28,6 +28,7 @@ const chartConfig = {
       }
     ]
   };
+  //data graphique
   data2={
     labels: ["Janvier", "Février", "Mars", "Avril", "Mai"],
     datasets: [
@@ -36,7 +37,7 @@ const chartConfig = {
       }
     ]
   };
-
+//retourne la bar de navigation
 export default function HomeScreen({route, navigation}){
     const {user} = route.params;
     const Tab= createBottomTabNavigator();
@@ -65,7 +66,7 @@ export default function HomeScreen({route, navigation}){
     );
 }
 
-
+//retourne l'affichage du tableau de bord avec les graphe et les informations
 function Home(){
     return(
         

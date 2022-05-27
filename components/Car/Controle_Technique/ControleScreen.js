@@ -9,7 +9,7 @@ import moment from "moment";
 import "moment/locale/fr";
 import {firebase} from "../../../firebase/config";
 
-
+//Variables d'état pour la gestion des champs de saisie du formulaire du controle technique
 const Controle = ({ navigation, route }) => {
     const [naturePicker, setNaturePicker] = useState("");
     const [resultatPicker, setResultatPicker] = useState("");
@@ -56,7 +56,7 @@ const Controle = ({ navigation, route }) => {
             alert("Numero is required !!");
             return;
         }
-
+//Connexion à la base de données
         const historiqueRef = firebase.firestore().collection('historique');
         historiqueRef
             .doc(id+"_"+moment(date).format('L').replace('/', '-').replace('/', '-')+"_"+moment(date).format('LTS'))
@@ -71,25 +71,6 @@ const Controle = ({ navigation, route }) => {
 
 
     }
-    /*
-    const renderEle = () => {
-        if(naturePicker == "Visite périodique" && resultatPicker == "Non valide"){
-            return(
-                <View>
-                <Text>Date contre visite : </Text>
-                <RNDateTimePicker
-                    value={contreVisiteDate}
-                    mode='date'
-                    display="default"
-                    maximumDate={limiteDate}
-                    onChange={onChangeContreDate}
-                />
-                <Text>Contre visite au plus tard : {renderLimiteDate()}</Text>
-                </View>
-            )
-        }
-    }
-    */
     
     const renderLimiteDate = () => {
         console.log("Limite", limiteDate)
@@ -97,7 +78,7 @@ const Controle = ({ navigation, route }) => {
             moment(limiteDate).format("D MMMM YYYY")
         )
     }
-
+//Retourne le contenu de la page de controle technique
     return (
         <>
             <View style={{ marginLeft: "auto", marginRight: "auto", margin: 15 }}>

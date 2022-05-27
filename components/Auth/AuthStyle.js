@@ -1,5 +1,6 @@
 import {StyleSheet} from "react-native";
 
+//Fichier de style pour la page d'authentification
 
 const styles = StyleSheet.create({
     container: {

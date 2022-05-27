@@ -20,7 +20,7 @@ export default function AddVehiculeScreen({navigation}) {
     const [kilometre, setKilometre] = React.useState('');
     const uid = firebase.auth().currentUser.uid;
 
-//Modalizer for Select type
+//Modalizer type de vehicule
 const modalizeRef = useRef(null);
     const onOpen = () => {
       modalizeRef.current?.open();
@@ -28,7 +28,7 @@ const modalizeRef = useRef(null);
     const onClose = () => {
         modalizeRef.current?.close();
     };
-//Modalizer for Select type
+//Modalizer marque
 const modalizeRef1 = useRef(null);
 const onOpen1 = () => {
     modalizeRef1.current?.open();
@@ -36,7 +36,7 @@ const onOpen1 = () => {
   const onClose1 = () => {
       modalizeRef1.current?.close();
   };
-//Modalizer for Modele type
+//Modalizer modeles
 const modalizeRef2 = useRef(null);
 const onOpen2 = () => {
     modalizeRef2.current?.open();
@@ -44,7 +44,7 @@ const onOpen2 = () => {
   const onClose2 = () => {
       modalizeRef2.current?.close();
   };
-  //Modalizer for annee type
+  //Modalizer annee de mise en circulation
 const modalizeRef3 = useRef(null);
 const onOpen3 = () => {
     modalizeRef3.current?.open();
@@ -52,7 +52,7 @@ const onOpen3 = () => {
   const onClose3 = () => {
       modalizeRef3.current?.close();
   };
-    //Modalizer for plaque type
+    //Modalizer numéro d'immatriculation
 const modalizeRef4 = useRef(null);
 const onOpen4 = () => {
     modalizeRef4.current?.open();
@@ -60,7 +60,7 @@ const onOpen4 = () => {
   const onClose4 = () => {
       modalizeRef4.current?.close();
   };
-      //Modalizer for kilometrage type
+      //Modalizer kilométrage
 const modalizeRef5 = useRef(null);
 const onOpen5 = () => {
     modalizeRef5.current?.open();
@@ -79,6 +79,7 @@ const onOpen5 = () => {
         type: select,
         uid: uid
     };
+    //alerte de confirmation
     const onButtonPress = () => {
 
         if(!marque.trim()){
@@ -97,7 +98,7 @@ const onOpen5 = () => {
             alert("Kilometre is required")
             return;
         }
-
+//connection a la base de donnée
         const VehiculeRef = firebase.firestore().collection('vehicules')
         VehiculeRef
             .doc(marque+plaque)
@@ -111,7 +112,7 @@ const onOpen5 = () => {
                 alert(error)
             });
     }
-
+//retourne le formulaire de saisie et la page
     return (
         <>
             <View>
