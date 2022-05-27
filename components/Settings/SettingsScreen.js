@@ -34,22 +34,22 @@ export default function Settings({navigation}) {
             </View>
 
 
-            <Text style={styles.label}>MY ACCOUNT</Text>
+            <Text style={styles.label}>MON COMPTE</Text>
             <View style={styles.account}>
                 <View style={styles.row}>
-                    <Text style={styles.col}>Username</Text>
+                    <Text style={styles.col}>Adresse mail</Text>
                     <Text style={styles.scope}>{user.email}</Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={styles.col}>First name</Text>
+                    <Text style={styles.col}>Prénom</Text>
                     <Text style={styles.scope}>first name</Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={styles.col}>Last name</Text>
+                    <Text style={styles.col}>Nom</Text>
                     <Text style={styles.scope}>User</Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={styles.col}>Dark mode</Text>
+                    <Text style={styles.col}>Mode sombre</Text>
                     <Switch style={styles.scope} onValueChange={toggleSwitch} value={isDarkMode}/>
                 </View>
             </View>

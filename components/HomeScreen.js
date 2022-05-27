@@ -4,45 +4,98 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import CarScreen from './Car/CarScreen'
 import SettingsScreen from './Settings/SettingsScreen';
 import InfoScreen from "./Info/InfoScreen";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faHouse, faCar, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Icon } from "react-native-elements";
+import {LineChart, BarChart} from "react-native-chart-kit";
+  import { Dimensions } from "react-native";
+const screenWidth = Dimensions.get("window").width - 16;
+
+const chartConfig = {
+    backgroundColor: "rgba(242,242,242,255)",
+    backgroundGradientFrom: "rgba(242,242,242,255)",
+    backgroundGradientTo: "rgba(242,242,242,255)",
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 2) => `rgba(78, 116, 289, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+    useShadowColorFromDataset: false // optional
+  };
+
+  const data = {
+    labels: ["Janvier", "Février", "Mars", "Avril", "Mai"],
+    datasets: [
+      {
+        data: [120.20, 160.79, 170.34, 140.37, 134.38]
+      }
+    ]
+  };
+  data2={
+    labels: ["Janvier", "Février", "Mars", "Avril", "Mai"],
+    datasets: [
+      {
+        data: [63.2, 84.7, 94.6, 76, 72.7]
+      }
+    ]
+  };
 
 export default function HomeScreen({route, navigation}){
     const {user} = route.params;
     const Tab= createBottomTabNavigator();
     return(
 <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home} options={{
+            <Tab.Screen name="Accueil" component={Home} options={{
                 tabBarIcon: ({ color }) => (
-                    //<FontAwesomeIcon icon={faHouse} size={26}/>
-                    <Icon name="home" size={26}/>
+                    <Icon name="home-outline" size={26} type="ionicon"/>
                 )
             }}/>
-            <Tab.Screen name="Car" component={CarScreen} initialParams={{ user: user}} options={{
+            <Tab.Screen name="Véhicule" component={CarScreen} initialParams={{ user: user}} options={{
                 tabBarIcon: ({ color }) => (
-                    //<FontAwesomeIcon icon={faCar} size={26}/>
-                    <Icon name="car" size={26}/>
+                    <Icon name="car-sport-outline" size={26} type="ionicon"/>
                 )
             }}/>
-            <Tab.Screen name="Info" component={InfoScreen} options={{tabBarIcon: ({ color }) => (
-                    <FontAwesomeIcon icon={faInfoCircle} size={26}/>
-                    )}}/>
-            <Tab.Screen name="Account" component={SettingsScreen} options={{
+            <Tab.Screen name="Information" component={InfoScreen} options={{tabBarIcon: ({ color }) => (
+                    <Icon name="information-circle-outline" size={26} type="ionicon"/>
+                    )
+            }}/>
+            <Tab.Screen name="Compte" component={SettingsScreen} options={{
                 tabBarIcon: ({ color }) => (
-                    //<FontAwesomeIcon icon={faUser} size={26}/>
-                    <Icon name="user" size={26}/>
+                    <Icon name="person-circle-outline" size={26}  type="ionicon"/>
                 )
             }}/>
         </Tab.Navigator>
     );
 }
 
+
 function Home(){
     return(
+        
         <View>
-            <Text>Home ! </Text>
-        </View>
+            <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+                
+                <Text style={{fontSize: 18, textAlign: 'center', marginTop: 25, color: 'rgba(78, 116, 289, 1)'}}>
+                Tableau de bord</Text></View>
+
+                <BarChart
+                   style={{alignItems: 'center', marginTop: 50}}
+                    data={data}
+                    width={screenWidth}
+                    height={220}
+                    yAxisLabel="€ "
+                    chartConfig={chartConfig}
+                    verticalLabelRotation={20}/>
+
+                <LineChart
+                style={{alignItems: 'center', marginTop: 40}}
+                    data={data2}
+                    width={screenWidth}
+                    height={250}
+                    verticalLabelRotation={20}
+                    yAxisLabel="L "
+                    chartConfig={chartConfig}
+                    
+                />
+</View>
+
     )
 }
 

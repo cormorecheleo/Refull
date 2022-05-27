@@ -7,13 +7,14 @@ import { useRef } from 'react';
 import { Modalize } from 'react-native-modalize';
 import { Picker } from "@react-native-picker/picker";
 import styles from "./CarStyle";
+import RNDateTimePicker from "@react-native-community/datetimepicker";
 
 
 export default function AddVehiculeScreen({navigation}) {
     const [marque, setMarque] = React.useState('');
     const [modele, setModele] = React.useState('');
     const currentDate = new Date();
-    const [chosenDate, setChosenDate] = React.useState(currentDate);
+    const [chosenDate, setChosenDate] = React.useState(new Date());
     const [plaque, setPlaque] = React.useState('');
     const [select, setSelect] = React.useState('');
     const [kilometre, setKilometre] = React.useState('');
@@ -157,7 +158,7 @@ const onOpen5 = () => {
             
             <Text style={styles.fieldLabel}>Année de mise en circulation</Text>
 
-            <Text style={styles.fieldResult}>date</Text>
+            <Text style={styles.fieldResult}>{setChosenDate}</Text>
                             
             <ListItem.Chevron style={styles.fieldChevron} />
             </View>
@@ -241,7 +242,9 @@ const onOpen5 = () => {
                       <Text style={{fontSize: 18, textAlign: 'center', marginTop: 25, marginBottom: 20, color: 'rgba(78, 116, 289, 1)'}}>
                     Année de mise en circulation</Text></View>}>
                      
-                 <Input placeholder="Nom du modèle" value={modele} onChangeText={(text) => setModele(text)}/>
+                    <Input placeholder="Année de mise en circulation" value={chosenDate} onChangeText={(text) => setChosenDate(text)} 
+                    keyboardType='numeric' maxLength={4}/>
+
                  <Button title="Valider" onPress={onClose3}
                     buttonStyle={{borderColor: 'rgba(78, 116, 289, 1)', borderWidth: 0.5, borderRadius: 5, marginTop: 30}}
                     type="outline" titleStyle={{color: 'rgba(78, 116, 289, 1)'}} 

@@ -42,9 +42,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonTitle: {
-        color: "white",
+        color: "rgba(0,100,255,1)",
         fontSize: 16,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        textAlign: "right",
+        marginRight: 30,
+        marginTop: 10
     },
     footerView: {
         flex:1,

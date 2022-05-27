@@ -40,13 +40,13 @@ const App = () => {
 
 
           {/* Authentication Screens */}
-          <Stack.Screen name="Login" component={LoginScreen}/>
-          <Stack.Screen name="Register" component={RegisterScreen}/>
+          <Stack.Screen name="Login" component={LoginScreen} options={{ title: "Connexion", headerBackTitle: "Retour" }}/>
+          <Stack.Screen name="Register" component={RegisterScreen} options={{ title: "Inscription", headerBackTitle: "Retour" }}/>
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false}}/>
-          <Stack.Screen name='Ajouter vehicule' component={AddCarScreen}/>
-          <Stack.Screen name='AddEvent' component={CarEvent} options={{ title: "Ajouter Event" }}/>
-          <Stack.Screen name='Details' component={CarDetails}/>
-          <Stack.Screen name='Controle technique' component={Controle}/>
+          <Stack.Screen name='Ajouter vehicule' component={AddCarScreen} options={{ title: "Ajouter un véhicule", headerBackTitle: "Retour" }}/>
+          <Stack.Screen name='AddEvent' component={CarEvent} options={{ title: "Ajouter Event", headerBackTitle: "Retour" }}/>
+          <Stack.Screen name='Details' component={CarDetails} options={{ title: "Détails", headerBackTitle: "Retour" }}/>
+          <Stack.Screen name='Controle technique' component={Controle} options={{headerBackTitle: "Retour" }}/>
 
         </React.Fragment>
       </Stack.Navigator>

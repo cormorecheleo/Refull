@@ -12,7 +12,7 @@ export default function LoginScreen({navigation}) {
     const [password, setPassword] = useState('')
 
     const onFooterLinkPress = () => {
-        navigation.navigate('Register')
+        navigation.navigate('register')
     }
 
     const onTestPress = () => {
@@ -22,7 +22,7 @@ export default function LoginScreen({navigation}) {
     const TestPress = () => {
         firebase
             .auth()
-            .signInWithEmailAndPassword("test2@gmail.com", "password")
+            .signInWithEmailAndPassword("antoine.duduc@hotmail.com", "14072000")
             .then((response) => {
                 const uid = response.user.uid
                 const usersRef = firebase.firestore().collection('users')
@@ -31,7 +31,7 @@ export default function LoginScreen({navigation}) {
                     .get()
                     .then(firestoreDocument => {
                         if(!firestoreDocument.exists){
-                            alert("User does not exist anymore")
+                            alert("L'utilisateur n'existe pas !")
                             return;
                         }
                         const user = firestoreDocument.data()
@@ -58,7 +58,7 @@ export default function LoginScreen({navigation}) {
                     .get()
                     .then(firestoreDocument => {
                         if(!firestoreDocument.exists){
-                            alert("User does not exist anymore")
+                            alert("L'utilisateur n'existe pas !")
                             return;
                         }
                         const user = firestoreDocument.data()
@@ -84,27 +84,27 @@ export default function LoginScreen({navigation}) {
                 </View>
             <TextInput
                 style={styles.input}
-                placeholder="E-mail"
+                placeholder="Adresse e-mail"
                 onChangeText={(text) => setEmail(text)}
                 value={email}
                 autoCapitalize="none"/>
                 <TextInput
                     style={styles.input}
                     secureTextEntry
-                    placeholder="Password"
+                    placeholder="Mot de passe"
                     onChangeText={(text) => setPassword(text)}
                     value={password}
                     autoCapitalize="none"/>
                 <TouchableOpacity
                     onPress={()=> onLoginPress()}>
-                    <Text style={styles.buttonTitle}>Log in</Text>
+                    <Text style={styles.buttonTitle}>Connexion</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{margin:20, backgroundColor:"grey"}}
                     onPress={() => TestPress()}>
-                        <Text>Passs</Text>
+                        <Text>Lol</Text>
                     </TouchableOpacity>
                 <View style={styles.footerView}>
-                    <Text style={styles.footerText}>Don't have an account ? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text> </Text>
+                    <Text style={styles.footerText}>Vous n'avez pas de compte ? <Text onPress={onFooterLinkPress} style={styles.footerLink}>S'inscrire</Text> </Text>
                 </View>
             </KeyboardAwareScrollView>
         </View>
